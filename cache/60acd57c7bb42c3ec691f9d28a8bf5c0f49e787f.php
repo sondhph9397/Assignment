@@ -7,7 +7,7 @@ Dashboard
     <div class="row">
     <div class="col-lg-3 col-6">
             <!-- small box -->
-            <div class="small-box bg-primary">
+            <div class="small-box bg-danger">
                 <div class="inner">
                     <h3><?php echo e(count($users)); ?></h3>
                     <p>Người dùng</p>
