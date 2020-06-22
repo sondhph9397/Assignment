@@ -27,7 +27,7 @@ Sản phẩm
 <a href="{{getClientURL('edit-user',['id'=>$us->id])}}">Sửa</a>
 </td>
 <td>
-<a href="{{getClientURL('remove-user',['id'=>$us->id])}}">Xóa</a>
+<a class="btn-remove" href="{{getClientURL('remove-user',['id'=>$us->id])}}">Xóa</a>
 </td>
 </tr>
      @endforeach

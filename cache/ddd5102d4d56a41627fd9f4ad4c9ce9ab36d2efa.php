@@ -27,7 +27,7 @@ Sản phẩm
 <a href="<?php echo e(getClientURL('edit-user',['id'=>$us->id])); ?>">Sửa</a>
 </td>
 <td>
-<a href="<?php echo e(getClientURL('remove-user',['id'=>$us->id])); ?>">Xóa</a>
+<a class="btn-remove" href="<?php echo e(getClientURL('remove-user',['id'=>$us->id])); ?>">Xóa</a>
 </td>
 </tr>
      <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>

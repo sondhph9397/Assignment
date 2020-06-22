@@ -32,3 +32,46 @@
 <script src="{{getAssetUrl('adminlte/dist/js/pages/dashboard.js')}}"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="{{getAssetUrl('adminlte/dist/js/demo.js')}}"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+<script>
+    $(document).ready(function(){
+        <?php if(isset($_GET['msg'])):?>
+        Swal.fire({
+            position: 'center',
+            icon: 'success',
+            title: "<?= $_GET['msg'];?>",
+            showConfirmButton: false,
+            timer: 1000
+        });
+        <?php endif;?>
+    });
+
+    $(document).ready(function() {
+        $('.btn-remove').on('click', function() {
+            var redirectUrl = $(this).attr('href');
+            Swal.fire({
+                title: 'Thông báo!',
+                text: "Bạn có chắc chắn muốn xóa?",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Đồng ý'
+            }).then((result) => { // arrow function es6 (es2015)
+                if (result.value) {
+                    window.location.href = redirectUrl;
+                }
+            });
+            return false;
+        });
+        <?php if (isset($_GET['msg'])) : ?>
+            Swal.fire({
+                position: 'bottom-center',
+                icon: 'success',
+                title: "<?= $_GET['msg']; ?>",
+                showConfirmButton: false,
+                timer: 1500
+            });
+        <?php endif; ?>
+    });
+</script>

@@ -10,23 +10,32 @@
                             <div class="form-group">
                                 <label for="">Tên Người dùng<span class="text-danger">*</span></label>
                                 <input type="text" class="form-control" name="name">
+                                <label for="" class="error">{{isset($_GET['nameerr']) ? $_GET['nameerr'] : ""}}</label>
                             </div>
                             <div class="form-group">
                                 <label for="">email<span class="text-danger">*</span></label>
                                 <input type="text" class="form-control" name="email">
+                                <label for="" class="error">{{isset($_GET['emailerr']) ? $_GET['emailerr'] : ""}}</label>
                             </div>
                             <div class="form-group">
                                 <label for="">Mât khẩu<span class="text-danger">*</span></label>
                                 <input type="password" class="form-control" name="password">
+                                <label for="" class="error">{{isset($_GET['passworderr']) ? $_GET['passworderr'] : ""}}</label>
                             </div>
                             <div class="form-group">
                                 <label for="">Ảnh<span class="text-danger">*</span></label>
                                 <input type="file" class="form-control" name="image">
+                                <label for="" class="error">{{isset($_GET['fileerr']) ? $_GET['fileerr'] : ""}}</label>
                             </div>
                           
                             <div class="form-group">
                                 <label for="">Quyền<span class="text-danger">*</span></label>
-                                <input type="number" min="1" max="3"  class="form-control" name="role">
+                                <select class="form-control" name="role" id="">
+                                    <option value="">1</option>
+                                    <option value="">2</option>
+                                    <option value="">3</option>
+                                </select>
+                                <label for="" class="error">{{isset($_GET['roleerr']) ? $_GET['roleerr'] : ""}}</label>
                             </div>
                               
                         </div>

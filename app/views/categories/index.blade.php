@@ -23,7 +23,7 @@ Sản phẩm
 <a href="{{getClientURL('edit-category',['id'=>$cate->id])}}">Sửa</a>
 </td>
 <td>
-<a href="{{getClientURL('remove-category',['id'=>$cate->id])}}">Xóa</a>
+<a class="btn-remove" href="{{getClientURL('remove-category',['id'=>$cate->id])}}">Xóa</a>
 </td>
 </tr>
      @endforeach

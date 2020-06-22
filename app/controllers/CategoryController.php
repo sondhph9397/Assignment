@@ -15,12 +15,12 @@ class CategoryController extends BaseController{
         $model = new Category();
         $model->fill($data);
         $model->save();
-        header("location: " . getClientURL('category'));
+        header("location: " . getClientURL('category?msg=thêm thành công'));
     }
     function delete(){
         $id = isset($_GET['id']) ? $_GET['id'] : -1;
         Category::destroy($id);
-        header("location: " . getClientURL('category'));
+        header("location: " . getClientURL('category?msg=xóa thành công'));
     }
     function editForm(){
         $id = isset($_GET['id']) ? $_GET['id'] : -1;
@@ -39,7 +39,7 @@ class CategoryController extends BaseController{
         $data = $_POST;
         $model->fill($data);
         $model->save();
-        header("location: " . getClientURL('category'));
+        header("location: " . getClientURL('category?msg=sửa thành công'));
     }
 }
 ?>

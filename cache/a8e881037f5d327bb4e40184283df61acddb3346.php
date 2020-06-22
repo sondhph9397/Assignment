@@ -16,4 +16,9 @@
   <!-- summernote -->
   <link rel="stylesheet" href="<?php echo e(getAssetUrl('adminlte/plugins/summernote/summernote-bs4.css')); ?>">
   <!-- Google Font: Source Sans Pro -->
-  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet"><?php /**PATH C:\xampp\htdocs\Assignment\app\views/layouts/_share/style.blade.php ENDPATH**/ ?>
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+  <style>
+    .error{
+      color: red;
+    }
+  </style><?php /**PATH C:\xampp\htdocs\Assignment\app\views/layouts/_share/style.blade.php ENDPATH**/ ?>

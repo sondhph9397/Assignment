@@ -6,19 +6,22 @@
             <div class="row">
                 <div class="col-md-6">
                     <div class="card card-primary">
-                        <div class="card-body">
+                        <div class="card-body"> 
                             <div class="form-group">
                             <input type="text" name="id" hidden id="" value="<?php echo e($model->id); ?>">
                                 <label for="">Tên Người dùng<span class="text-danger">*</span></label>
                                 <input type="text" value="<?php echo e($model->name); ?>" class="form-control" name="name">
+                                <label for="" class="error"><?php echo e(isset($_GET['nameerr']) ? $_GET['nameerr'] : ""); ?></label>
                             </div>
                             <div class="form-group">
                                 <label for="">email<span class="text-danger">*</span></label>
                                 <input type="text" class="form-control" name="email" value="<?php echo e($model->email); ?>">
+                                <label for="" class="error"><?php echo e(isset($_GET['emailerr']) ? $_GET['emailerr'] : ""); ?></label>
                             </div>
                             <div class="form-group">
                                 <label for="">Ảnh<span class="text-danger">*</span></label>
                                 <input type="file" class="form-control" name="image"><img src="<?php echo e($model->avatar); ?>" alt="">
+                                <label for="" class="error"><?php echo e(isset($_GET['fileerr']) ? $_GET['fileerr'] : ""); ?></label>
                             </div>
                           
                             <div class="form-group">

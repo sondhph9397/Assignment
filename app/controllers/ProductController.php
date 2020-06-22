@@ -12,8 +12,8 @@ class ProductController extends BaseController
     function index()
     {
         $products = Product::all();
-        $product = DB::table('products')->paginate(15);
-        return view('products.index', ['products' => $product]);
+        // $product = DB::table('products')->paginate(15);
+        // return view('products.index', ['products' => $product]);
         return $this->render('products.index', ['products' => $products]);
 
     }
@@ -29,7 +29,7 @@ class ProductController extends BaseController
         $data = $_POST;
         $model = new Product();
         //upload ảnh.
-        $model->image = uploadImage($_FILES['image'], "public/uploads/products");
+        // $model->image = uploadImage($_FILES['image'], "public/uploads/products");
 
         //validate
         $name = $data['name'];
@@ -53,20 +53,13 @@ class ProductController extends BaseController
         if (strlen($name) == "") {
             $nameerr = "Yêu cầu nhập tên";
         }
-        if ($file['size'] == 0 || $file['size'] > 2097152) {
-            $fileerr = "Yêu cầu thêm ảnh (Nhỏ hơn 2MB)";
-        }
-        if ($fileerr == "" && $file['type'] != "image/jpeg"
-            && $file['type'] != "image/png") {
-            $fileerr = "Yêu cầu nhập ảnh đúng định dạng (jpg-jpeg-png)";
-        }
         if(strlen($short_desc) == ""){
             $descerr = "Yêu cầu nhập thông tin";
         }
         if (strlen($short_desc) < 2 || strlen($short_desc) > 191) {
             $descerr = "Yêu cầu nhập thông tin ít nhất 2 kí tự";
         }
-        if(strlen($star)==""){
+        if(strlen($star) == ""){
             $starerr = "Yêu cầu đánh giá";
         }
         if(strlen($price)==""){
@@ -92,7 +85,7 @@ class ProductController extends BaseController
         }
         $model->fill($data);
         $model->save();
-        header("location: " . getClientURL('product'));
+        header("location: " . getClientURL('product?msg=Thêm thành công'));
     }
     function delete()
     {
@@ -101,7 +94,7 @@ class ProductController extends BaseController
         // thực hiện xóa sản phẩm dựa vào id
         Product::destroy($id);
         // trở về trang danh sách sản phẩm
-        header("location:" . getClientURL('product'));
+        header("location:" . getClientURL('product?msg=xóa thành công'));
     }
     public function editForm()
     {
@@ -157,6 +150,6 @@ class ProductController extends BaseController
         }
         $model->fill($data);
         $model->save();
-        header("location: " .  getClientURL('product'));
+        header("location: " .  getClientURL('product?msg=Sửa thành công'));
     }
 }
