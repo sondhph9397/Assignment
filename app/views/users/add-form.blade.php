@@ -27,17 +27,17 @@
                                 <input type="file" class="form-control" name="image">
                                 <label for="" class="error">{{isset($_GET['fileerr']) ? $_GET['fileerr'] : ""}}</label>
                             </div>
-                          
+
                             <div class="form-group">
                                 <label for="">Quyền<span class="text-danger">*</span></label>
                                 <select class="form-control" name="role" id="">
-                                    <option value="">1</option>
-                                    <option value="">2</option>
-                                    <option value="">3</option>
+                                    @foreach($roles as $ro)
+                                    <option value="{{$ro->id}}">{{$ro->name}}</option>
+                                    @endforeach
                                 </select>
                                 <label for="" class="error">{{isset($_GET['roleerr']) ? $_GET['roleerr'] : ""}}</label>
                             </div>
-                              
+
                         </div>
                     </div>
                 </div>

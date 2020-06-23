@@ -26,7 +26,14 @@
                           
                             <div class="form-group">
                                 <label for="">Quyền<span class="text-danger">*</span></label>
-                                <input type="number" min="1" max="3"  class="form-control" name="role" value="<?php echo e($model->role); ?>">
+                                <select class="form-control" name="role" id="">
+                                <?php $__currentLoopData = $roles; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $ro): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                    <option value="<?php echo e($ro->id); ?>" <?php if($ro->id==$model->role): ?> 
+                                        selected
+                                         <?php endif; ?>
+                                        ><?php echo e($ro->name); ?></option>
+                                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                </select>
                             </div>
                               
                         </div>
@@ -34,7 +41,7 @@
                 </div>
                 <div class="col-md-12 d-flex justify-content-start">
                     <div class="card-footer">
-                        <button type="submit" class="btn btn-primary">Tạo</button>&nbsp;
+                        <button type="submit" class="btn btn-primary">Sửa</button>&nbsp;
                         <a href="<?php echo e(getClientURL('user')); ?>" class="btn btn-danger">Hủy</a>
                     </div>
                 </div>

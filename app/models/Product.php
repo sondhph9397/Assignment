@@ -8,6 +8,9 @@ class Product extends Model{
         'name','image','cate_id','price','short_desc','detail','star'
     ];
     
+    public function getCateName(){
+        return $this->hasOne(Category::class,'id','cate_id');
+    }
 }
 
 

@@ -9,9 +9,8 @@ Sản phẩm
 <th>STT</th>
 <th>Tên người dùng</th>
 <th>email</th>
-<th>Ảnh</th>
 <th>Quyền</th>
-<th>
+<th colspan="2">
 <a href="{{getClientURL('add-user')}}">Thêm</a>
 </th>
 </thead>
@@ -21,8 +20,7 @@ Sản phẩm
 <td>{{$us->id }}</td>
 <td>{{$us->name}}</td>
 <td>{{$us->email}}</td>
-<td><img src="{{$us->avatar}}" width="200px" alt=""></td>
-<td>{{$us->role}}</td>
+<td>{{$us->getCateName->name}}</td>
 <td>
 <a href="{{getClientURL('edit-user',['id'=>$us->id])}}">Sửa</a>
 </td>

@@ -8,8 +8,7 @@ Sản phẩm
 <thead>
 <th>mã danh mục</th>
 <th>Tên danh mục</th>
-<th>Mô tả ngắn</th>
-<th>
+<th colspan="2">
 <a href="{{getClientURL('add-category')}}">Thêm</a>
 </th>
 </thead>
@@ -18,7 +17,6 @@ Sản phẩm
 <tr>
 <td>{{$cate->id }}</td>
 <td>{{$cate->cate_name}}</td>
-<td>{{$cate->desc}}</td>
 <td>
 <a href="{{getClientURL('edit-category',['id'=>$cate->id])}}">Sửa</a>
 </td>

@@ -2,6 +2,7 @@
 
 namespace App\Controllers;
 
+use App\Models\Role;
 use App\Models\User;
 
 class UserController extends BaseController
@@ -9,16 +10,18 @@ class UserController extends BaseController
     function index()
     {
         $users = User::all();
+        
         return $this->render('users.index', ['users' => $users]);
     }
     function addForm()
-    {
-        return $this->render('users.add-form');
+    {   $roles = Role::all();
+        return $this->render('users.add-form',['roles'=>$roles]);
     }
     function saveAdd()
     {
         $data = $_POST;
         $model = new User();
+        
         // $model->avatar = uploadImage($_FILES['image'], "public/uploads/users");
         //validate
         $file = $_FILES['image'];
@@ -76,11 +79,12 @@ class UserController extends BaseController
     function editForm()
     {
         $id = isset($_GET['id']) ? $_GET['id'] : -1;
+        $role = Role::all();
         $model = User::find($id);
         if ($model == null) {
             header("location: " . getClientURL('user'));
         }
-        $this->render('users.edit-form', ['model' => $model]);
+        $this->render('users.edit-form', ['model' => $model,'roles'=>$role]);
     }
     function saveEdit()
     {
@@ -133,7 +137,7 @@ class UserController extends BaseController
 
         $model->fill($data);
         $model->save();
-        header("location: " . getClientURL('user'));
+        header("location: " . getClientURL('user?msg=sửa thành công'));
     }
     function delete()
     {

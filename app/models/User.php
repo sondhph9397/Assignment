@@ -6,5 +6,8 @@ class User extends Model{
     protected $fillable = [
         'name','avatar','email','role','password'
     ];
+    public function getCateName(){
+        return $this->hasOne(Role::class,'id','role');
+    }
 }
 ?>

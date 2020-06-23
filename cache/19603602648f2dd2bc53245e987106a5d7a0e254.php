@@ -8,8 +8,7 @@ Sản phẩm
 <thead>
 <th>mã danh mục</th>
 <th>Tên danh mục</th>
-<th>Mô tả ngắn</th>
-<th>
+<th colspan="2">
 <a href="<?php echo e(getClientURL('add-category')); ?>">Thêm</a>
 </th>
 </thead>
@@ -18,12 +17,11 @@ Sản phẩm
 <tr>
 <td><?php echo e($cate->id); ?></td>
 <td><?php echo e($cate->cate_name); ?></td>
-<td><?php echo e($cate->desc); ?></td>
 <td>
 <a href="<?php echo e(getClientURL('edit-category',['id'=>$cate->id])); ?>">Sửa</a>
 </td>
 <td>
-<a href="<?php echo e(getClientURL('remove-category',['id'=>$cate->id])); ?>">Xóa</a>
+<a class="btn-remove" href="<?php echo e(getClientURL('remove-category',['id'=>$cate->id])); ?>">Xóa</a>
 </td>
 </tr>
      <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>

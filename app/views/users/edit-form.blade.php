@@ -26,7 +26,14 @@
                           
                             <div class="form-group">
                                 <label for="">Quyền<span class="text-danger">*</span></label>
-                                <input type="number" min="1" max="3"  class="form-control" name="role" value="{{$model->role}}">
+                                <select class="form-control" name="role" id="">
+                                @foreach($roles as $ro)
+                                    <option value="{{$ro->id}}" @if($ro->id==$model->role) 
+                                        selected
+                                         @endif
+                                        >{{$ro->name}}</option>
+                                    @endforeach
+                                </select>
                             </div>
                               
                         </div>
@@ -34,7 +41,7 @@
                 </div>
                 <div class="col-md-12 d-flex justify-content-start">
                     <div class="card-footer">
-                        <button type="submit" class="btn btn-primary">Tạo</button>&nbsp;
+                        <button type="submit" class="btn btn-primary">Sửa</button>&nbsp;
                         <a href="{{getClientURL('user')}}" class="btn btn-danger">Hủy</a>
                     </div>
                 </div>

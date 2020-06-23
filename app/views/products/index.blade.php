@@ -8,10 +8,10 @@ Sản phẩm
 <thead>
 <th>Ma SP</th>
 <th>Tên SP</th>
-<th>Ảnh</th>
-<th>Danh mục</th>
+<th>Loại sản phẩm</th>
+<th>Đánh giá</th>
 <th>Giá tiền</th>
-<th>
+<th colspan="2">
 <a href="{{getClientURL('add-product')}}">Thêm</a>
 </th>
 </thead>
@@ -20,8 +20,8 @@ Sản phẩm
 <tr>
 <td>{{$item->id }}</td>
 <td>{{$item->name}}</td>
-<td><img src="{{BASE_URL. $item->image}}" alt="" width="200px"></td>
-<td>{{$item->cate_id}}</td>
+<td>{{$item->getCateName->cate_name}}</td>
+<td>{{$item->star}} <i class="fas fa-star"></i> </td>
 <td>{{$item->price}}</td>
 <td>
 <a href="{{getClientURL('edit-product',['id'=>$item->id])}}">Sửa</a>

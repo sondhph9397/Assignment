@@ -9,9 +9,8 @@ Sản phẩm
 <th>STT</th>
 <th>Tên người dùng</th>
 <th>email</th>
-<th>Ảnh</th>
 <th>Quyền</th>
-<th>
+<th colspan="2">
 <a href="<?php echo e(getClientURL('add-user')); ?>">Thêm</a>
 </th>
 </thead>
@@ -21,8 +20,7 @@ Sản phẩm
 <td><?php echo e($us->id); ?></td>
 <td><?php echo e($us->name); ?></td>
 <td><?php echo e($us->email); ?></td>
-<td><img src="<?php echo e($us->avatar); ?>" width="200px" alt=""></td>
-<td><?php echo e($us->role); ?></td>
+<td><?php echo e($us->getCateName->name); ?></td>
 <td>
 <a href="<?php echo e(getClientURL('edit-user',['id'=>$us->id])); ?>">Sửa</a>
 </td>

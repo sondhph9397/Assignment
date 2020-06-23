@@ -8,10 +8,10 @@ Sản phẩm
 <thead>
 <th>Ma SP</th>
 <th>Tên SP</th>
-<th>Ảnh</th>
-<th>Danh mục</th>
+<th>Loại sản phẩm</th>
+<th>Đánh giá</th>
 <th>Giá tiền</th>
-<th>
+<th colspan="2">
 <a href="<?php echo e(getClientURL('add-product')); ?>">Thêm</a>
 </th>
 </thead>
@@ -20,8 +20,8 @@ Sản phẩm
 <tr>
 <td><?php echo e($item->id); ?></td>
 <td><?php echo e($item->name); ?></td>
-<td><img src="<?php echo e(BASE_URL. $item->image); ?>" alt="" width="200px"></td>
-<td><?php echo e($item->cate_id); ?></td>
+<td><?php echo e($item->getCateName->cate_name); ?></td>
+<td><?php echo e($item->star); ?> <i class="fas fa-star"></i> </td>
 <td><?php echo e($item->price); ?></td>
 <td>
 <a href="<?php echo e(getClientURL('edit-product',['id'=>$item->id])); ?>">Sửa</a>

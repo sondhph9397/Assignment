@@ -27,17 +27,17 @@
                                 <input type="file" class="form-control" name="image">
                                 <label for="" class="error"><?php echo e(isset($_GET['fileerr']) ? $_GET['fileerr'] : ""); ?></label>
                             </div>
-                          
+
                             <div class="form-group">
                                 <label for="">Quyền<span class="text-danger">*</span></label>
                                 <select class="form-control" name="role" id="">
-                                    <option value="">1</option>
-                                    <option value="">2</option>
-                                    <option value="">3</option>
+                                    <?php $__currentLoopData = $roles; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $ro): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                    <option value="<?php echo e($ro->id); ?>"><?php echo e($ro->name); ?></option>
+                                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                 </select>
                                 <label for="" class="error"><?php echo e(isset($_GET['roleerr']) ? $_GET['roleerr'] : ""); ?></label>
                             </div>
-                              
+
                         </div>
                     </div>
                 </div>
