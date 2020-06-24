@@ -53,6 +53,10 @@ class ProductController extends BaseController
         if (strlen($name) == "") {
             $nameerr = "Yêu cầu nhập tên";
         }
+        $getByName = Product::where('name', 'like', $name)->get();
+        if ($nameerr == "" && count($getByName) > 0) {
+            $nameerr = "Tên đã tồn tại, vui lòng nhập tên khác";
+        }
         if(strlen($short_desc) == ""){
             $descerr = "Yêu cầu nhập thông tin";
         }
