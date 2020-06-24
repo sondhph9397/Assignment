@@ -56,6 +56,9 @@ class ProductController extends BaseController
         if(strlen($short_desc) == ""){
             $descerr = "Yêu cầu nhập thông tin";
         }
+        if (strlen($file) < 0){
+            $fileerr = "Yêu cầu nhập ảnh";
+        }
         if (strlen($short_desc) < 2 || strlen($short_desc) > 191) {
             $descerr = "Yêu cầu nhập thông tin ít nhất 2 kí tự";
         }
@@ -64,6 +67,9 @@ class ProductController extends BaseController
         }
         if(strlen($price)==""){
             $priceerr = "Yêu cầu nhập giá";
+        }
+        if ($price < 0){
+            $priceerr = "xin mời nhập số dương";
         }
         if(strlen($detail)==""){
             $detailerr = "Yêu cầu nhập thông tin";

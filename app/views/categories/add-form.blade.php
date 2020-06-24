@@ -10,10 +10,12 @@
                             <div class="form-group">
                                 <label for="">Tên danh mục<span class="text-danger">*</span></label>
                                 <input type="text" class="form-control" name="cate_name">
+                                <label for="" class="error">{{isset($_GET['cate_nameerr']) ? $_GET['cate_nameerr'] : ""}}</label>
                             </div>
-                              <div class="form-group">
+                            <div class="form-group">
                                 <label for="">Mô tả ngắn<span class="text-danger">*</span></label>
                                 <textarea name="desc" id="" cols="50" rows="5" class="form-control"></textarea>
+                                <label for="" class="error">{{isset($_GET['descerr']) ? $_GET['descerr'] : ""}}</label>
                             </div>
                         </div>
                     </div>

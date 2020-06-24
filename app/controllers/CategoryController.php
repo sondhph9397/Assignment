@@ -13,6 +13,28 @@ class CategoryController extends BaseController{
     function saveAdd(){
         $data = $_POST;
         $model = new Category();
+        //validate
+        $name = $data['cate_name'];
+        $desc = $data['desc'];
+        $cate_nameerr = "";
+        $descerr = "";
+        if (strlen($name) == ""){
+            $cate_nameerr = "Mời nhập tên loại sản phẩm";
+        }
+        $getByName = Category::where('cate_name', 'like', $name)->get();
+        if ($cate_nameerr == "" && count($getByName) > 0) {
+            $cate_nameerr = "Tên đã tồn tại, vui lòng nhập tên khác";
+        }
+        if (strlen($desc) == ""){
+            $descerr = "Mời nhập mô tả";
+        }
+        if ($cate_nameerr . $descerr != ""){
+            header("location: " . getClientURL('add-category',[
+                'cate_nameerr'=>$cate_nameerr,
+                'descerr'=> $descerr
+                ]));
+                die;
+        }
         $model->fill($data);
         $model->save();
         header("location: " . getClientURL('category?msg=thêm thành công'));
@@ -37,6 +59,24 @@ class CategoryController extends BaseController{
             header("location: " . getClientURL('category'));
         }
         $data = $_POST;
+        $name = $data['cate_name'];
+        $desc = $data['desc'];
+        $cate_nameerr = "";
+        $descerr = "";
+        if (strlen($name) == ""){
+            $cate_nameerr = "Mời nhập tên loại sản phẩm";
+        }
+        if (strlen($desc) == ""){
+            $descerr = "Mời nhập mô tả";
+        }
+        if ($cate_nameerr . $descerr != ""){
+            header("location: " . getClientURL('edit-category',[
+                'id'=>$id,
+                'cate_nameerr'=>$cate_nameerr,
+                'descerr'=> $descerr
+                ]));
+                die;
+        }
         $model->fill($data);
         $model->save();
         header("location: " . getClientURL('category?msg=sửa thành công'));

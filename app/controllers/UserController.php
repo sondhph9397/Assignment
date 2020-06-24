@@ -44,6 +44,10 @@ class UserController extends BaseController
         if ($nameerr == "" && count($getByName) > 0) {
             $nameerr = "Tên đã tồn tại, vui lòng nhập tên khác";
         }
+        if (strlen($file) < 0){
+            $fileerr = "Yêu cầu nhập ảnh";
+        }
+
         if (strlen($email) == 0) {
             $emailerr = "Yêu cầu nhập email";
         }

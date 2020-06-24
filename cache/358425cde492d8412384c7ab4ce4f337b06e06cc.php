@@ -29,7 +29,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="">Giá<span class="text-danger">*</span></label>
-                                <input type="number" min="0" class="form-control" name="price">
+                                <input type="number" class="form-control" name="price">
                                 <label for="" class="error"><?php echo e(isset($_GET['priceerr']) ? $_GET['priceerr'] : ""); ?></label>
 
                             </div>

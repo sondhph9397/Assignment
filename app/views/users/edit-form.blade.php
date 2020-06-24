@@ -20,7 +20,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="">Ảnh<span class="text-danger">*</span></label>
-                                <input type="file" class="form-control" name="image"><img src="{{$model->avatar}}" alt="">
+                                <input type="file" class="form-control" name="image"><img src="{{$model->avatar}}" width="200px" alt="">
                                 <label for="" class="error">{{isset($_GET['fileerr']) ? $_GET['fileerr'] : ""}}</label>
                             </div>
                           
